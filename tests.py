@@ -24,6 +24,7 @@ class TestSignaturesParser(unittest.TestCase):
 
             print("signature: %s" % (signature, ))
 
+            #todo: make case in-sensitive comparison
             self.assertDictEqual(expected_dict, received_dict)
 
 

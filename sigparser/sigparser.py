@@ -1,7 +1,5 @@
-import re
-
-# changed the idea to use decorators
-# because they would work here with input
+import types
+import parser_modules
 
 class SignatureParser:
     """
@@ -9,17 +7,18 @@ class SignatureParser:
     """
 
     def __init__(self):
-        self.regexps = dict(
-            email = re.compile(r'([\w\-\.]+@[\w\-\.]+\.[\w\-]+)'),
-            website = re.compile(r'(https?://[^\s]+)')
-        )
+        
+        self.parser_modules = [parser_modules.__dict__.get(mod) for mod in dir(parser_modules) if isinstance(parser_modules.__dict__.get(mod), types.ModuleType) and mod.startswith("look_for_")]
 
+        print(self.parser_modules)
+        
     def get_information(self, input):
+        """
+        returns the dictionary of parsed information
+        """
         result = dict()
-        for look_for in self.regexps:
-            matched = self.regexps[look_for].findall(input)
-            if matched:
-                result[look_for] = matched
+
+        for module in self.parser_modules:
+            result = module.run(input, result)
 
         return result
-
