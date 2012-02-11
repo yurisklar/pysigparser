@@ -1,0 +1,29 @@
+import unittest
+import os
+import json
+import xmlrpclib
+import client.settings
+
+class TestSignaturesParser(unittest.TestCase):
+
+    def testSignaturesParser(self):
+
+        signatures_dir = os.path.abspath(os.path.dirname(__file__)) + os.sep + "tests" + os.sep + "signatures"
+        signatures = [ filename.replace(".sig", "") for filename in os.listdir(signatures_dir) if filename.endswith(".sig")]
+
+        # initializing XML-RPC client
+        xmlrpc_connection = xmlrpclib.Server('http://%s:%d' % (client.settings.connection_host, client.settings.connection_port))
+
+        self.maxDiff = None
+        for signature in signatures:
+            sig_filename = signatures_dir + os.sep + signature + ".sig"
+            json_filename = signatures_dir + os.sep + signature + ".json"
+
+            expected_dict = json.load(open(json_filename, "r"))
+            received_dict = json.loads(xmlrpc_connection.parse_signature(open(sig_filename, "r").read()))
+
+            self.assertDictEqual(expected_dict, received_dict)
+
+
+if __name__ == "__main__":
+    unittest.main()
