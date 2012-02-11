@@ -1,5 +1,5 @@
-Regards,
+BR,
 Yuri Sklar
 
 Skype: black_piano
-yuri.sklar@example.com
+http://example.com

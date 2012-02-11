@@ -1,0 +1,25 @@
+Python signatures parser with uses XML-RPC interface.
+
+Currently looks for Email addresses and Web-sites in signature.
+
+Usage: start the server with "python server.py"
+Server is ready to accept connections and parse the data.
+
+In another terminal you may check the client or check tests.
+
+Usage of client:
+python client.py -f <filename.sig>
+
+ The script connects to XML-RPC server
+sending the data from <filename.sig>
+and prints received JSON
+
+ Example: python client.py -f <path-to>/tests/1.sig
+
+
+Usage of tests:
+"python tests.py" starts tests.
+
+The directory tests/signatures has pairs of .sig and .json files.
+Tests send each .sig file to server and compare with corresponding expected .json file.
+The server must be running at this moment.

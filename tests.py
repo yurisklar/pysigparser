@@ -22,6 +22,8 @@ class TestSignaturesParser(unittest.TestCase):
             expected_dict = json.load(open(json_filename, "r"))
             received_dict = json.loads(xmlrpc_connection.parse_signature(open(sig_filename, "r").read()))
 
+            print("signature: %s" % (signature, ))
+
             self.assertDictEqual(expected_dict, received_dict)
 
 

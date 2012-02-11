@@ -1,8 +1,5 @@
 {
-    "URLS": [
-        "http://www.connex.io/"
-    ],
-    "IM": {
-        "skype": "atamyrat"
-    }
+    "email": [
+        "yuri.sklar@example.com"
+    ]
 }
