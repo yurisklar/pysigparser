@@ -1,3 +1,6 @@
+"""
+XML-RPC server
+"""
 import sys
 import signal
 import SimpleXMLRPCServer

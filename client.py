@@ -1,3 +1,6 @@
+"""
+XML-RPC client
+"""
 import sys
 import getopt
 import xmlrpclib

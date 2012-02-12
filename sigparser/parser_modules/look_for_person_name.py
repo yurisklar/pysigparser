@@ -1,3 +1,6 @@
+"""
+module to extract Name information from signature
+"""
 import re
 import string
 

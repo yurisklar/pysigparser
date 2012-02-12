@@ -1,3 +1,6 @@
+"""
+Tests for Signature parser
+"""
 import unittest
 import os
 import json
@@ -5,8 +8,17 @@ import xmlrpclib
 import client.settings
 
 class TestSignaturesParser(unittest.TestCase):
+    """
+    Class to test Signature parser
+    """
 
     def testSignaturesParser(self):
+        """
+        Test Signature parser with predefined signatures.
+        The directory tests/signatures has pairs of .sig and .json files.
+        The test sends each .sig file to server and compare with corresponding expected .json file.
+        The server must be running at this moment.
+        """
 
         signatures_dir = os.path.abspath(os.path.dirname(__file__)) + os.sep + "tests" + os.sep + "signatures"
         signatures = [ filename.replace(".sig", "") for filename in os.listdir(signatures_dir) if filename.endswith(".sig")]

@@ -1,3 +1,6 @@
+"""
+XML-RPC calls controller
+"""
 import json
 from sigparser.sigparser import SignatureParser
 
@@ -10,7 +13,7 @@ class RequestHandler:
 
     def parse_signature(self, input_text):
         """
-        receives the signature information using SignatureParser
+        extracts the signature information using SignatureParser
         """
         return json.dumps(self._SigParser.get_information(input_text))
 

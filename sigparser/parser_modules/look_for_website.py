@@ -1,3 +1,6 @@
+"""
+module to extract Web-site information from signature
+"""
 import re
 
 webpage_regexp = re.compile(r'(https?://[^\s]+)', re.IGNORECASE)
