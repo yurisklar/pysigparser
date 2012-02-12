@@ -1,4 +1,4 @@
-BR,
+Cheers
 Yuri Sklar
 
 Skype: black_piano
